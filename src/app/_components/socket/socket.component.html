@@ -6,7 +6,8 @@
   <div>
     <h1>Socket.io Chat Application</h1>
     <!-- Display new message count -->
-    <p>New Messages: {{ messageService.messageCount$ | async }}</p>
+    <!-- <p>New Messages: {{ messageService.messageCount$ | async }}</p> -->
+    <p>New Messages of {{ user }} is: {{ unSeenCount }}</p>
     <!-- Display chat messages -->
     <div>
       <ul>

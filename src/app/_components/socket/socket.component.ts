@@ -11,6 +11,7 @@ export class SocketComponent implements OnInit {
   public message: string = '';
   public messages: MessageData[] = [];
   public user: string = '';
+  unSeenCount: number = 0;
   constructor(
     private socketService: SocketService,
     public messageService: MessagesService
@@ -18,6 +19,7 @@ export class SocketComponent implements OnInit {
 
   ngOnInit(): void {
     this.initSocketConnection();
+    this.countUnseenMsg();
   }
 
   private initSocketConnection(): void {
@@ -25,17 +27,25 @@ export class SocketComponent implements OnInit {
       'message',
       (data: { message: string; user: string; seenBy: string[] }) => {
         this.messages = data as any; // Add the message
+        this.countUnseenMsg();
       }
     );
   }
 
   public sendMessage(): void {
-    if (this.message) {
-      const user = this.user;
-      const messageData = { message: this.message, user: user, seenBy: [user] };
-      this.messages.push(messageData);
-      this.socketService.socket.emit('message', this.messages);
-      this.message = '';
+    if (this.user.length) {
+      if (this.message) {
+        const messageData = {
+          message: this.message,
+          user: this.user,
+          seenBy: [this.user],
+        };
+        this.messages.push(messageData);
+        this.socketService.socket.emit('message', this.messages);
+        this.message = '';
+      }
+    } else {
+      alert('please enter a user!');
     }
   }
 
@@ -56,5 +66,12 @@ export class SocketComponent implements OnInit {
     } else {
       alert('enter user name');
     }
+  }
+  public countUnseenMsg() {
+    this.messages.forEach((msg: MessageData) => {
+      if (!msg.seenBy.includes(this.user)) {
+        this.unSeenCount++;
+      }
+    });
   }
 }
