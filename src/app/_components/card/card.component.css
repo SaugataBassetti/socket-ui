@@ -1,0 +1,31 @@
+.container{
+    padding-top: 5%;
+    padding-left: 220px;
+}
+.big_card{
+   /* display: flex; */
+   background-color: whitesmoke;
+   border: none;
+   border: 0.5px solid whitesmoke;
+   box-shadow: 4px 4px 4px rgb(192, 186, 186);
+   border-radius: 15px;
+   margin-bottom: 30px;
+   /* flex-wrap: wrap; */
+}
+.flex-container{
+    display: flex;
+    flex-wrap: wrap;
+    
+    /* padding-bottom: 200px; */
+}
+.flex-container > button{
+    margin:0px 10px 10px 25px;
+    text-align: center;
+    /* padding-top: 27px; */
+    width: 130px;
+    height: 78px;
+    /* background-color: rgb(49, 173, 223); */
+    border-radius: 10px;
+    border: none;
+}
+

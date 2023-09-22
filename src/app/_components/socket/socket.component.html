@@ -1,0 +1,26 @@
+<div class="container">
+  <div>
+    user
+    <input [(ngModel)]="user" placeholder="Enter name" />
+  </div>
+  <div>
+    <h1>Socket.io Chat Application</h1>
+    <!-- Display new message count -->
+    <p>New Messages: {{ messageService.messageCount$ | async }}</p>
+    <!-- Display chat messages -->
+    <div>
+      <ul>
+        <li *ngFor="let msg of messages">
+          <span [class.seen]="msg.seen">{{ msg.user }}: {{ msg.message }}</span>
+          <button (click)="markAsSeen(msg)">Mark as Seen</button>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Message input and send button -->
+    <div>
+      <input [(ngModel)]="message" placeholder="Type your message" />
+      <button (click)="sendMessage()">Send</button>
+    </div>
+  </div>
+</div>

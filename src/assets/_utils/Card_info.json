@@ -1,0 +1,101 @@
+[
+    {
+    "title": "vos genres preferes",
+    "child": [
+        {
+            "items": "playlist Latine",
+            "colour": "#36aec1"
+        },
+        {
+            "items": "playlist Jazz",
+            "colour": "#a2d7e2"
+        },
+        {
+            "items": "playlist Classique",
+            "colour": "#b4dad2"
+        },
+        {
+            "items": "playlist Rap",
+            "colour": "#e3eeeb"
+        },
+        {
+            "items": "playlist PopaS",
+            "colour": "#1a6a77"
+        }
+     ]
+   },
+   {
+    "title": "parcourir les ambiances relax",
+    "child": [
+        {
+            "items": "Bien-etre",
+            "colour": "#d96d01"
+        },
+        {
+            "items": "Nature",
+            "colour": "#e99d19"
+        },
+        {
+            "items": "Quotidien",
+            "colour": "#fed257"
+        },
+        {
+            "items": "playlist Rap",
+            "colour": "#fce9b6"
+        }
+    ]
+   },
+   {
+    "title":"Parcourir Touts",
+    "child": [
+        {
+            "items": "Bien-etre",
+            "colour": "#d96d01"
+        },
+        {
+            "items": "playlist Latine",
+            "colour": "#36aec1"
+        },
+        {
+            "items": "playlist Classique",
+            "colour": "#b4dad2"
+        },
+        {
+            "items": "Nature",
+            "colour": "#e99d19"
+        },
+        {
+            "items": "80's",
+            "colour": "#15e7e0"
+        },
+        {
+            "items": "50's",
+            "colour": "#7effdc"
+        },
+        {
+            "items": "playlist Techno",
+            "colour": "#e3eeeb"
+        },
+        {
+            "items": "Quotidien",
+            "colour": "#fed257"
+        },
+        {
+            "items": "playlist Rock",
+            "colour": "#a2d7e2"
+        },
+        {
+            "items": "60's",
+            "colour": "#7effdc"
+        },
+        {
+            "items": "playlist Rap",
+            "colour": "#fce9b6"
+        },
+        {
+            "items": "playlist Countrys",
+            "colour": "#1a6a77"
+        }
+    ]
+   }
+]

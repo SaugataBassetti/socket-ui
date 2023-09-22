@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <title>navbar</title>
+  </head>
+
+  <body>
+    <div class="sidenav">
+      <p>
+        <img
+          style="width: 80%; padding-left: 16%; border-radius: 50%"
+          src="assets\download.png"
+        />
+        <a
+          style="
+            text-align: center;
+            font-weight: 700;
+            color: black;
+            margin-right: 20%;
+          "
+          >Bonjour lebs</a
+        >
+      </p>
+      <div class="navbuttom">
+        <a class="glyphicon glyphicon-user" [routerLink]="'/profile'">
+          Profile</a
+        >
+        <a class="glyphicon glyphicon-heart" [routerLink]="'/task'">
+          Go to Task</a
+        >
+        <a class="glyphicon glyphicon-search" [routerLink]="'/socket'"
+          >Socket</a
+        >
+        <a class="glyphicon glyphicon-trash" href="#"> Exit</a>
+      </div>
+    </div>
+  </body>
+</html>

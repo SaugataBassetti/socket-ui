@@ -1,0 +1,14 @@
+.container {
+  margin-top: 10%;
+  margin-left: 20%;
+}
+span.seen {
+  font-weight: normal;
+  color: gray;
+}
+
+/* Style for unseen messages */
+span:not(.seen) {
+  font-weight: bold;
+  color: black;
+}

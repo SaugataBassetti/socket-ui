@@ -1,0 +1,31 @@
+.box{
+    display: flex;
+    align-items: center;
+    margin-left: 2%;
+    width: 80%;
+    border-radius: 55px;
+    height: 40px;
+    padding-left: 1.5%;
+    padding-right: 1.5%;
+    border:none;
+    border: 0.5px solid rgb(218, 216, 216);
+    box-shadow: 2px 2px rgb(192, 186, 186);
+}
+.box > i{
+    font-size: 20px;
+    color: cornflowerblue;
+}
+.box > input{
+    padding-left: 2%;
+    flex : 1;
+    border: none;
+    outline: none;
+    height: 35px;
+}
+input[type=text]::placeholder{
+    /* padding-left: 5%; */
+    font-weight: 600;
+    color: rgb(109, 108, 108);
+    font-size: large;
+    box-shadow: 2px black;
+}
