@@ -11,8 +11,10 @@
     <div>
       <ul>
         <li *ngFor="let msg of messages">
-          <span [class.seen]="msg.seen">{{ msg.user }}: {{ msg.message }}</span>
-          <button (click)="markAsSeen(msg)">Mark as Seen</button>
+          <span [class.seen]="msg.seenBy.includes(user)"
+            >{{ msg.user }}: {{ msg.message }}</span
+          >
+          <button (click)="markAsSeen(msg, user)">Mark as Seen</button>
         </li>
       </ul>
     </div>

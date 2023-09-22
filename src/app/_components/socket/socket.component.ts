@@ -11,7 +11,6 @@ export class SocketComponent implements OnInit {
   public message: string = '';
   public messages: MessageData[] = [];
   public user: string = '';
-
   constructor(
     private socketService: SocketService,
     public messageService: MessagesService
@@ -24,38 +23,38 @@ export class SocketComponent implements OnInit {
   private initSocketConnection(): void {
     this.socketService.socket.on(
       'message',
-      (data: { message: string; seenBy: string[] }) => {
-        this.messages = data; // Add the message
+      (data: { message: string; user: string; seenBy: string[] }) => {
+        this.messages = data as any; // Add the message
       }
     );
   }
 
   public sendMessage(): void {
     if (this.message) {
-      const user = new Date().getSeconds() + this.user;
-      const messageData = { message: this.message, seenBy: [user] };
+      const user = this.user;
+      const messageData = { message: this.message, user: user, seenBy: [user] };
       this.messages.push(messageData);
       this.socketService.socket.emit('message', this.messages);
       this.message = '';
     }
   }
 
-  public markAsSeen(messageData: MessageData): void {
-    let usersFromStorage: string[] = [];
-    const storedUsers = localStorage.getItem('usersWhoMarkedSeen');
-
-    if (storedUsers) {
-      usersFromStorage = JSON.parse(storedUsers);
+  public markAsSeen(messageData: MessageData, seenBy: string): void {
+    if (seenBy.length) {
+      if (!messageData.seenBy.includes(seenBy)) {
+        messageData.seenBy.push(seenBy);
+        const messageSeenData = {
+          message: messageData.message,
+          user: messageData.user,
+          seenBy: messageData,
+        };
+        this.socketService.socket.emit('message', messageSeenData);
+        this.messageService.decrementMessageCount();
+      } else {
+        alert('user Has already seen the Message');
+      }
+    } else {
+      alert('enter user name');
     }
-
-    if (!usersFromStorage.includes(this.user)) {
-      usersFromStorage.push(this.user);
-      localStorage.setItem(
-        'usersWhoMarkedSeen',
-        JSON.stringify(usersFromStorage)
-      );
-    }
-    // messageData.seen = true;
-    this.messageService.decrementMessageCount();
   }
 }
